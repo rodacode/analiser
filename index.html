@@ -13,16 +13,32 @@
 </head>
 
 <body>
+<div class="main container">
+	<div class="jumbotron">
+		<h1 class="text-center">HTML Analyser</h1>
+	</div>
+	<div id="form-container">
+		<p class="text-center">Enter the url to analyse:</p>
+		<form name="myform" action="" method="GET">
+			<input type="text" name="inputbox" value="">
+			<button type="button" name="button" onClick="analyzer(this.form)">Analise</button>
+		</form>
+	</div>
+	<div id="show"></div>
+	<div class="col-md-12 code-container">
+		<h3 class="text-center">Site Source Code</h3>
+		<div id="showCodeDiv">
+			<code id="showCode"></code>
+		</div>
+	</div>
+	<footer>
+		<div class="footer container">
+			<div class="col-md-12">
+				<p class="text-center">Made by Nicolás Hardmeier</p>
+			</div>
+		</div>
+	</footer>
 
-
-<form name="myform" action="" method="GET">Enter the url to analyze: <br>
-<input type="text" name="inputbox" value="">
-<input type="button" name="button" Value="Click" onClick="analyzer(this.form)">
-</form>
-<div id="show"></div>
-<h3 class="text-center">Site Source Code</h3>
-<div id="showCodeDiv">
-	<code id="showCode"></code>
 </div>
 </body>
 
