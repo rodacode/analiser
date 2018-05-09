@@ -1,31 +1,49 @@
 var form;
 var str;
 var inputUrl;
-
-
+var myHeaders = new Headers({
+    'Content-Type': 'text/xml'
+});
 var y = $(str).html();
 
 
-async function getUrl(form){
+function getUrl(form){
 	console.log('getUrl: '+form.inputbox.value);
 	inputUrl = form.inputbox.value;
 	console.log(inputUrl);	
-	var x = $.getJSON('http://www.whateverorigin.org/get?url=' + encodeURIComponent('http://'+ inputUrl) + '&callback=?', function(data){
-		return str = data.contents;
-		console.log('CODE:::::'+str);
+	$.getJSON('http://www.whateverorigin.org/get?url=' + encodeURIComponent('http://'+ inputUrl) + '&callback=?', function(data){
+		showSourceCode(data.contents);
+		console.log('CODE:'+data.contents);
+		str = data.contents;
 	});
-	console.log('x: '+str);
-    await analyzer(str);
 
-}
+};
 
 
+
+/*
+
+// url (required), options (optional)
+fetch('http://www.whateverorigin.org/get?url=' + encodeURIComponent('http://'+ inputUrl), {
+	method: 'get',
+	headers: myHeaders
+}).then(function(response) {
+	console.log(response);
+}).catch(function(err) {
+    // Error :(
+});
+
+
+
+*/
 
 function analyzer(str){
-	showSourceCode(str);
+
 	checkTags(str);
+	console.log('analyzer: ' +inputUrl);
+
 	console.log('analyzer: ' + str);
-}
+};
 
 function showSourceCode(str){
 
@@ -34,7 +52,7 @@ function showSourceCode(str){
 	var showCode = document.getElementById("showCode");
 	showCode.appendChild(code); 
 	console.log('showSourceCode: ' + str);
-}
+};
 
 function checkTags(str){
 	console.log('checkTags' + str);
@@ -47,4 +65,4 @@ function checkTags(str){
 		answer="We couldn´t find any title tag";
 		document.getElementById("show").innerHTML = answer; 
 	}
-}
+};
