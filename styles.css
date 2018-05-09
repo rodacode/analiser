@@ -1,6 +1,8 @@
 .jumbotron{
     margin:10px;
     border-radius: 5px;
+    background-color: #4715A6!important;
+    color:#fff;
 
 }
 #form-container{
@@ -35,8 +37,8 @@
 .footer{
     background-color: #000;
     color:#fff;
-    position: absolute;
-    bottom: 0px;
+    position: fixed;
+    bottom: 1px;
     padding:10px;
     margin-top: 10px;
 }
